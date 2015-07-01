@@ -3,7 +3,6 @@
 var dom5 = require('dom5');
 var pred = dom5.predicates;
 
-
 function getHref(link) {
   var href = null;
 
