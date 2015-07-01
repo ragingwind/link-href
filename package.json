@@ -1,7 +1,7 @@
 {
   "name": "linktack",
   "version": "0.0.0",
-  "description": "Change link url where you want",
+  "description": "Change a link href to where you want",
   "license": "MIT",
   "repository": "ragingwind/linktack",
   "author": {
@@ -21,8 +21,11 @@
   "keywords": [
     ""
   ],
-  "dependencies": {},
+  "dependencies": {
+    "dom5": "^1.1.0"
+  },
   "devDependencies": {
+    "lodash": "^3.10.0",
     "mocha": "*"
   }
 }

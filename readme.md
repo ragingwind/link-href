@@ -1,43 +1,34 @@
 # linktack [![Build Status](https://travis-ci.org/ragingwind/linktack.svg?branch=master)](https://travis-ci.org/ragingwind/linktack)
 
-> My remarkable module
+> Change a link href to where you want
 
 
 ## Install
 
 ```
-$ npm install --save swap
+$ npm install --save linktack
 ```
 
 
 ## Usage
 
 ```js
-var swap = require('swap');
-var html = '<html><head><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic"></head></html>';
+var linktack = require('linktack');
+
+fs.createReadStream(uri).pipe(linktack(function(link) {
+  // return updated url value if you want to change the href
+  return link + '/changeurl';
+}).pipe(exportHtml());
 ```
 
 ## API
 
-### swap(input, [options])
+### linktack(predicate)
 
-#### input
+#### predicate
 
-*Required*  
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`  
-Default: `false`
-
-Lorem ipsum.
-
+To evaluate a link which could be updated or not
 
 ## License
 
-MIT © [ragingwind](http://ragingwind.md)
+MIT © [ragingwind](http://ragingwind.me)
