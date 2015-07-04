@@ -14,16 +14,19 @@ $ npm install --save linktack
 
 ```js
 var linktack = require('linktack');
-
-fs.createReadStream(uri).pipe(linktack(function(link) {
+var tack = linktack(html, function(link) {
   // return updated url value if you want to change the href
   return link + '/changeurl';
-}).pipe(exportHtml());
+});
 ```
 
 ## API
 
-### linktack(predicate)
+### linktack(html, predicate)
+
+#### html
+
+HTML string that includes link with google font href
 
 #### predicate
 

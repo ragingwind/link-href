@@ -17,40 +17,30 @@ function getHref(link) {
   return href;
 }
 
-function linktack(predicate) {
-  var Transform = require('stream').Transform;
-  var parser = new Transform({objectMode: true});
+function linktack(html, predicate) {
+  var doc = dom5.parse(html);
+  var links = dom5.queryAll(doc, pred.hasTagName('link'));
 
-  parser._transform = function (data, encoding, done) {
-    var origin = data.toString('utf8');
-    var doc = dom5.parse(origin);
-    var links = dom5.queryAll(doc, pred.hasTagName('link'));
+  if (links && predicate) {
+    links.forEach(function (link) {
+      var attr = getHref(link);
 
-    if (links && predicate) {
-      links.forEach(function (link) {
-        var attr = getHref(link);
+      if (attr) {
+        var originHref = attr.value
+        var newHref = predicate(originHref, attr);
 
-        if (attr) {
-          var originHref = attr.value
-          var newHref = predicate(originHref, attr);
-
-          if (originHref !== newHref) {
-            attr.value = newHref;
-          }
+        if (originHref !== newHref) {
+          attr.value = newHref;
         }
-      });
-    }
-
-    this.push({
-      origin: origin,
-      update: dom5.serialize(doc),
-      links: links
+      }
     });
+  }
 
-    done();
+  return {
+    srcHTML: html,
+    destHTML: dom5.serialize(doc),
+    links: links
   };
-
-  return parser;
 }
 
 module.exports =  linktack;
