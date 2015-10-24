@@ -1,6 +1,6 @@
 {
   "name": "replace-link",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Change a link href in html to where you want",
   "license": "MIT",
   "repository": "ragingwind/node-replace-link",
