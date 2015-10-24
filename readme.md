@@ -1,37 +1,52 @@
-# linktack [![Build Status](https://travis-ci.org/ragingwind/linktack.svg?branch=master)](https://travis-ci.org/ragingwind/linktack)
+# replace-link [![Build Status](https://travis-ci.org/ragingwind/node-replace-link.svg?branch=master)](https://travis-ci.org/ragingwind/node-replace-link)
 
-> Change a link href to where you want
+> Change a link href in html to where you want
 
 
 ## Install
 
 ```
-$ npm install --save linktack
+$ npm install --save replace-link
 ```
 
 
 ## Usage
 
 ```js
-var linktack = require('linktack');
-var tack = linktack(html, function(link) {
+var replaceLink = require('replace-link');
+var tack = replaceLink(html, function(href, attr) {
   // return updated url value if you want to change the href
-  return link + '/changeurl';
+  return href + '/changeurl';
 });
+
+console.log(tack.html);
+console.log(tack.link);
+
 ```
 
 ## API
 
-### linktack(html, predicate)
+### replaceLink(html, evaluate)
 
 #### html
 
 HTML string that includes link with google font href
 
-#### predicate
+#### evaluate
 
 To evaluate a link which could be updated or not
 
+## Return
+
+Return updated html with link information
+
+```
+{
+  html: String
+  link: []
+}
+```
+
 ## License
 
-MIT © [ragingwind](http://ragingwind.me)
+MIT © [Jimmy Moon](http://ragingwind.me)

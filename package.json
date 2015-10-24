@@ -1,9 +1,9 @@
 {
-  "name": "linktack",
+  "name": "replace-link",
   "version": "0.0.0",
-  "description": "Change a link href to where you want",
+  "description": "Change a link href in html to where you want",
   "license": "MIT",
-  "repository": "ragingwind/linktack",
+  "repository": "ragingwind/node-replace-link",
   "author": {
     "name": "ragingwind",
     "email": "ragingwind@gmail.com",
@@ -19,7 +19,9 @@
     "index.js"
   ],
   "keywords": [
-    ""
+    "html",
+    "link",
+    "transform"
   ],
   "dependencies": {
     "dom5": "^1.1.0"

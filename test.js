@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('assert');
-var linktack = require('./');
+var replaceLink = require('./');
 var _ = require('lodash');
 
 it('should ', function () {
@@ -13,10 +13,10 @@ it('should ', function () {
     '</html>'
   ].join('\n');
 
-  var tack = linktack(html, function (href, attr) {
+  var tack = replaceLink(html, function (href, attr) {
     return href + '/newaddr';
-  })
+  });
 
   assert(tack.links.length === 2);
-  assert(/newaddr/.test(tack.destHTML), 'Updated href value should be existed');
+  assert(/newaddr/.test(tack.html), 'Updated href value should be existed');
 });

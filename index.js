@@ -17,30 +17,30 @@ function getHref(link) {
   return href;
 }
 
-function linktack(html, predicate) {
+function replaceLink(html, evaluate) {
   var doc = dom5.parse(html);
   var links = dom5.queryAll(doc, pred.hasTagName('link'));
 
-  if (links && predicate) {
-    links.forEach(function (link) {
-      var attr = getHref(link);
-
-      if (attr) {
-        var originHref = attr.value
-        var newHref = predicate(originHref, attr);
-
-        if (originHref !== newHref) {
-          attr.value = newHref;
-        }
-      }
-    });
+  if (!links) {
+    return null;
   }
 
+  links.forEach(function (link) {
+    var attr = getHref(link);
+
+    if (attr && evaluate) {
+      var href = evaluate(attr.value, attr);
+
+      if (attr.value !== href) {
+        attr.value = href;
+      }
+    }
+  });
+
   return {
-    srcHTML: html,
-    destHTML: dom5.serialize(doc),
+    html: dom5.serialize(doc),
     links: links
   };
 }
 
-module.exports =  linktack;
+module.exports = replaceLink;
