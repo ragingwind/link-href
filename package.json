@@ -1,6 +1,6 @@
 {
   "name": "link-href",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Change a link href in html to where you want",
   "license": "MIT",
   "repository": "ragingwind/link-href",
