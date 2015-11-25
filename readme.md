@@ -1,4 +1,4 @@
-# replace-link [![Build Status](https://travis-ci.org/ragingwind/node-replace-link.svg?branch=master)](https://travis-ci.org/ragingwind/node-replace-link)
+# link-href [![Build Status](https://travis-ci.org/ragingwind/link-href.svg?branch=master)](https://travis-ci.org/ragingwind/link-href)
 
 > Change a link href in html to where you want
 
@@ -6,27 +6,25 @@
 ## Install
 
 ```
-$ npm install --save replace-link
+$ npm install --save link-href
 ```
 
 
 ## Usage
 
 ```js
-var replaceLink = require('replace-link');
-var tack = replaceLink(html, function(href, attr) {
+var linkHref = require('link-href');
+var tack = linkHref(html, function(href, attr) {
   // return updated url value if you want to change the href
   return href + '/changeurl';
 });
 
-console.log(tack.html);
-console.log(tack.link);
-
+console.log(tack.html, tack.link);
 ```
 
 ## API
 
-### replaceLink(html, evaluate)
+### linkHref(html, evaluate)
 
 #### html
 

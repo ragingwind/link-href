@@ -1,9 +1,9 @@
 {
-  "name": "replace-link",
+  "name": "link-href",
   "version": "0.0.1",
   "description": "Change a link href in html to where you want",
   "license": "MIT",
-  "repository": "ragingwind/node-replace-link",
+  "repository": "ragingwind/link-href",
   "author": {
     "name": "ragingwind",
     "email": "ragingwind@gmail.com",
